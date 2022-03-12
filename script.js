@@ -5,10 +5,32 @@ let colorSelected;
 //Add a row
 function addR() {
     alert("Clicked Add Row")
+
+    let grid = document.getElementById('grid');
+    let row = document.createElement('tr');
+
+    for(let i = 0; i <= numCols; i++) {
+        let cell = document.createElement('td');
+        row.append(cell);
+        //grid.onclick change to current selected color
+    }
+
+    grid.appendChild(row);
+    numRows++;
 }
+
 //Add a column
 function addC() {
     alert("Clicked Add Col")
+
+    let grid = document.getElementById('grid');
+
+    for(const row of grid.rows) {
+        let cell = document.createElement('td');
+        row.append(cell);
+        // grid.onclick change to current selected color
+    }
+    numCols++;
 }
 
 //Remove a row
