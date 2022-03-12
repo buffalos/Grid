@@ -36,11 +36,22 @@ function addC() {
 //Remove a row
 function removeR() {
     alert("Clicked Remove Row")
+
+    document.getElementById('grid').deleteRow(numRows-1);
+    numRows--;
 }
+
 //Remove a column
 function removeC() {
     alert("Clicked Remove Col")
+
+    let grid = document.getElementById('grid');
+    for(const row of grid.rows){
+        row.getElementsByTagName('td')[numCols].remove();
+    }
+    numCols--;
 }
+
 //sets global var for selected color
 function selected(){
     colorSelected = document.getElementById("selectedID").value;
