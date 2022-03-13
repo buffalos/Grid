@@ -6,15 +6,21 @@ let colorSelected;
 function addR() {
     alert("Clicked Add Row")
 
+    //referencing 'grid' object within HTML file
     let grid = document.getElementById('grid');
+
+    //create an instance of a row
     let row = document.createElement('tr');
 
     for(let i = 0; i <= numCols; i++) {
+        //create an instance of a cell and append it to row
         let cell = document.createElement('td');
         row.append(cell);
-        //grid.onclick change to current selected color
-    }
 
+        //on click, change to current selected color
+        cell.onclick = changeColor;
+    }
+    //add row inside grid tag
     grid.appendChild(row);
     numRows++;
 }
@@ -23,12 +29,16 @@ function addR() {
 function addC() {
     alert("Clicked Add Col")
 
+    //referencing 'grid' object within HTML file
     let grid = document.getElementById('grid');
 
     for(const row of grid.rows) {
+        //create an instance of a cell and append it to row
         let cell = document.createElement('td');
         row.append(cell);
-        // grid.onclick change to current selected color
+
+        //on click, change to current selected color
+        cell.onclick = changeColor;
     }
     numCols++;
 }
@@ -68,4 +78,9 @@ function clearAll(){
 
 function fillU(){
     alert("Clicked Fill All Uncolored")
+}
+
+function changeColor() {
+    //changing background of the cell that calls this function to the selected color
+    this.style.backgroundColor = colorSelected;
 }
