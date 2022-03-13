@@ -1,11 +1,11 @@
 let numRows = 0;
 let numCols = 0;
-let colorSelected; 
+let colorSelected;
 
 //Add a row
 function addR() {
     alert("Clicked Add Row")
-
+  
     //referencing 'grid' object within HTML file
     let grid = document.getElementById('grid');
 
@@ -18,7 +18,9 @@ function addR() {
         row.append(cell);
 
         //on click, change to current selected color
-        cell.onclick = changeColor;
+        cell.onclick = function (){
+            this.style.backgroundColor = colorSelected;
+        };
     }
     //add row inside grid tag
     grid.appendChild(row);
@@ -38,7 +40,9 @@ function addC() {
         row.append(cell);
 
         //on click, change to current selected color
-        cell.onclick = changeColor;
+        cell.onclick = function (){
+            this.style.backgroundColor = colorSelected;
+        };
     }
     numCols++;
 }
@@ -70,17 +74,37 @@ function selected(){
 
 function fill(){
     alert("Clicked Fill All")
+
+    let grid = document.getElementById('grid');
+
+    for (const row of grid.rows) {
+        for (const cell of row.cells) {
+            cell.style.backgroundColor = colorSelected;
+        }
+    }
 }
 
 function clearAll(){
     alert("Clicked Clear All")
+    let grid = document.getElementById('grid');
+
+    for (const row of grid.rows) {
+        for (const cell of row.cells) {
+            cell.style.backgroundColor = "white";
+        }
+    }
 }
 
 function fillU(){
     alert("Clicked Fill All Uncolored")
-}
 
-function changeColor() {
-    //changing background of the cell that calls this function to the selected color
-    this.style.backgroundColor = colorSelected;
+    let grid = document.getElementById('grid');
+
+    for (const row of grid.rows) {
+        for (const cell of row.cells) {
+            if (cell.style.backgroundColor != "red" && cell.style.backgroundColor != "green" && cell.style.backgroundColor != "yellow" && cell.style.backgroundColor != "blue"){
+                cell.style.backgroundColor = colorSelected;
+            }
+        }
+    }
 }
