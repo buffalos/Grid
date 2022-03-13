@@ -1,5 +1,6 @@
-# Grid
-Assignment 3
+# Assignment 3: Grid
 
-Bahtija Durakovic
-Saida Khamidova
+### Group Members:
+
+- Bahtija Durakovic
+- Saida Khamidova

@@ -5,18 +5,24 @@ let colorSelected;
 //Add a row
 function addR() {
     alert("Clicked Add Row")
-
+  
+    //referencing 'grid' object within HTML file
     let grid = document.getElementById('grid');
+
+    //create an instance of a row
     let row = document.createElement('tr');
 
     for(let i = 0; i <= numCols; i++) {
+        //create an instance of a cell and append it to row
         let cell = document.createElement('td');
         row.append(cell);
+
+        //on click, change to current selected color
         cell.onclick = function (){
             this.style.backgroundColor = colorSelected;
         };
     }
-
+    //add row inside grid tag
     grid.appendChild(row);
     numRows++;
 }
@@ -25,11 +31,15 @@ function addR() {
 function addC() {
     alert("Clicked Add Col")
 
+    //referencing 'grid' object within HTML file
     let grid = document.getElementById('grid');
 
     for(const row of grid.rows) {
+        //create an instance of a cell and append it to row
         let cell = document.createElement('td');
         row.append(cell);
+
+        //on click, change to current selected color
         cell.onclick = function (){
             this.style.backgroundColor = colorSelected;
         };
