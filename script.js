@@ -5,7 +5,7 @@ let colorSelected;
 //Add a row
 function addR() {
     alert("Clicked Add Row")
-  
+
     //referencing 'grid' object within HTML file
     let grid = document.getElementById('grid');
 
@@ -75,10 +75,13 @@ function selected(){
 function fill(){
     alert("Clicked Fill All")
 
+    //creating a variable holding grid
     let grid = document.getElementById('grid');
 
+    //iterating over the rows and columns of grid to manipulate each cell color
     for (const row of grid.rows) {
         for (const cell of row.cells) {
+            //change every cell color to the color selected
             cell.style.backgroundColor = colorSelected;
         }
     }
@@ -86,10 +89,14 @@ function fill(){
 
 function clearAll(){
     alert("Clicked Clear All")
+
+    //creating a variable holding grid
     let grid = document.getElementById('grid');
 
+    //iterating over the rows and columns of grid to manipulate each cell color
     for (const row of grid.rows) {
         for (const cell of row.cells) {
+            //change every cell color back to white
             cell.style.backgroundColor = "white";
         }
     }
@@ -98,10 +105,13 @@ function clearAll(){
 function fillU(){
     alert("Clicked Fill All Uncolored")
 
+    //creating a variable holding grid
     let grid = document.getElementById('grid');
 
+    //iterating over the rows and columns of grid to manipulate each cell color
     for (const row of grid.rows) {
         for (const cell of row.cells) {
+            //if cell is not already colored, change it to the color selected
             if (cell.style.backgroundColor != "red" && cell.style.backgroundColor != "green" && cell.style.backgroundColor != "yellow" && cell.style.backgroundColor != "blue"){
                 cell.style.backgroundColor = colorSelected;
             }

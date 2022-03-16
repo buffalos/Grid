@@ -1,4 +1,4 @@
-# Assignment 3: Grid
+# Assignment 2: Grid
 
 ### Group Members:
 
